@@ -1,0 +1,38 @@
+ext {
+    // plugin
+    gradlePluginVersion = '4.1.3'
+
+    // kotlin
+    kotlinVersion = '1.4.32'
+    coroutinesVersion = '1.4.3'
+
+    // android
+    coreVersion = '1.3.2'
+    appCompatVersion = '1.2.0'
+    materialVersion = '1.3.0'
+    constraintLayoutVersion = '2.0.4'
+    lifecycleVersion = '2.3.1'
+    activityKtxVersion = '1.2.3'
+    pagingVersion = '3.0.0'
+    swipeRefreshLayoutVersion = '1.1.0'
+
+    // hilt dependency injection
+    hiltVersion = '2.35'
+
+    // database
+    roomVersion = '2.3.0'
+
+    // glide
+    glideVersion = '4.12.0'
+
+    // 3p dependencies
+    timberVersion = '4.7.1'
+    retrofitVersion = '2.9.0'
+    moshiVersion = '1.12.0'
+
+    // test dependencies
+    junitVersion = '4.13.2'
+    mockitoVersion = '3.2.0'
+    androidxJunitVersion = '1.1.2'
+    androidxEspressoVersion = '3.3.0'
+}

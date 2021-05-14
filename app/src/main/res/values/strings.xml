@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Pokédex</string>
+
+    <string name="loading_state_retry_button_text">Retry</string>
+</resources>
