@@ -34,11 +34,11 @@ class DefaultPokemonNetworkClientTest {
     fun testFetchPokemonDataByName() {
         runBlocking {
             val mockResponse = mock<Response<PokemonResponse>>()
-            whenever(mockNetworkService.fetchPokemonDataByName(anyString())).thenReturn(
+            whenever(mockNetworkService.fetchPokemonDataById(anyString())).thenReturn(
                 mockResponse
             )
 
-            val result = subject.fetchPokemonDataByName("test")
+            val result = subject.fetchPokemonDataById("test")
 
             assertEquals(mockResponse, result)
         }

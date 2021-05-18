@@ -7,4 +7,32 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="purple_background">#1A6200EE</color>
+
+    <!-- pokemon type colors -->
+    <color name="bug">#179A55</color>
+    <color name="dark">#040706</color>
+    <color name="dragon">#378A94</color>
+    <color name="electric">#E0E64B</color>
+    <color name="fairy">#9E1A44</color>
+    <color name="fire">#B22328</color>
+    <color name="flying">#90B1C5</color>
+    <color name="ghost">#363069</color>
+    <color name="ice">#7ECFF2</color>
+    <color name="poison">#642785</color>
+    <color name="psychic">#AC296B</color>
+    <color name="rock">#4B190E</color>
+    <color name="steel">#5C756D</color>
+    <color name="water">#2648DC</color>
+    <color name="fighting">#9F422A</color>
+    <color name="grass">#007C42</color>
+    <color name="ground">#AD7235</color>
+    <color name="normal">#FFAB00</color>
+    <color name="other">#B1A5A5</color>
+
+    <!-- pokemon stat colors -->
+    <color name="hp">#F44336</color>
+    <color name="attack">#FF9800</color>
+    <color name="defense">#2196F3</color>
+    <color name="speed">#4CAF50</color>
 </resources>

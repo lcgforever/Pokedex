@@ -1,6 +1,6 @@
 package com.chenguang.pokedex.repository
 
-import com.chenguang.pokedex.model.PokemonInfo
+import com.chenguang.pokedex.model.PokemonDetails
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -8,5 +8,5 @@ import kotlinx.coroutines.flow.Flow
  */
 interface PokemonRepository {
 
-    fun fetchPokemonList(pageNumber: Int = 0): Flow<List<PokemonInfo>>
+    fun fetchPokemonData(id: String): Flow<PokemonDetails>
 }

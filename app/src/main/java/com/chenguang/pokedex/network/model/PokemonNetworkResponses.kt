@@ -1,8 +1,13 @@
 package com.chenguang.pokedex.network.model
 
+import com.chenguang.pokedex.model.PokemonAbility
+import com.chenguang.pokedex.model.PokemonDetails
 import com.chenguang.pokedex.model.PokemonInfo
+import com.chenguang.pokedex.model.PokemonStat
+import com.chenguang.pokedex.model.PokemonType
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.util.Locale
 
 /**
  * Network response for pokemon query results
@@ -20,18 +25,6 @@ data class PokemonLinkResponse(
     @Json(name = "name") val name: String,
     @Json(name = "url") val url: String
 )
-
-/**
- * Helper method to convert network response data model to client domain model
- */
-fun PokemonLinkResponse.toPokemonInfo(): PokemonInfo {
-    return PokemonInfo(
-        // Url format: https://pokeapi.co/api/v2/pokemon/{id}/
-        id = url.split("/").dropLast(1).last(),
-        name = name,
-        url = url
-    )
-}
 
 @JsonClass(generateAdapter = true)
 data class PokemonResponse(
@@ -81,3 +74,53 @@ data class AbilityDataResponse(
     @Json(name = "name") val name: String,
     @Json(name = "url") val url: String
 )
+
+/**
+ * Helper method to convert network response data model to client domain model
+ */
+fun PokemonLinkResponse.toPokemonInfo(): PokemonInfo {
+    return PokemonInfo(
+        // Url format: https://pokeapi.co/api/v2/pokemon/{id}/
+        id = url.split("/").dropLast(1).last(),
+        name = name.capitalize(Locale.getDefault()),
+        url = url
+    )
+}
+
+/**
+ * Helper method to convert network response data model to client domain model
+ */
+fun PokemonResponse.toPokemonDetails(): PokemonDetails {
+    return PokemonDetails(
+        id = id,
+        name = name.capitalize(Locale.getDefault()),
+        baseExperience = baseExperience,
+        height = height.toFloat() / 10,
+        weight = weight.toFloat() / 10,
+        types = types.map {
+            PokemonType(
+                id = it.typeData.url.split("/").dropLast(1).last(),
+                slot = it.slot,
+                name = it.typeData.name.capitalize(Locale.getDefault()),
+                url = it.typeData.url
+            )
+        },
+        stats = stats.map {
+            PokemonStat(
+                id = it.statData.url.split("/").dropLast(1).last(),
+                value = it.value,
+                name = it.statData.name.capitalize(Locale.getDefault()),
+                url = it.statData.url
+            )
+        },
+        abilities = abilities.map {
+            PokemonAbility(
+                id = it.abilityData.url.split("/").dropLast(1).last(),
+                slot = it.slot,
+                isHidden = it.isHidden,
+                name = it.abilityData.name.capitalize(Locale.getDefault()),
+                url = it.abilityData.url
+            )
+        }
+    )
+}

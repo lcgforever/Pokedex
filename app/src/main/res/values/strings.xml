@@ -2,4 +2,13 @@
     <string name="app_name">Pokédex</string>
 
     <string name="loading_state_retry_button_text">Retry</string>
+    <string name="pokemon_detail_activity_toolbar_title">Pokemon Card</string>
+    <string name="pokemon_toolbar_transition_name">toolbar_transition</string>
+    <string name="pokemon_id_format">%03d</string>
+    <string name="pokemon_height_format">%.1fm</string>
+    <string name="pokemon_weight_format">%.1fkg</string>
+    <string name="pokemon_type_text">Type</string>
+    <string name="pokemon_height_text">Height</string>
+    <string name="pokemon_weight_text">Weight</string>
+    <string name="pokemon_experience_text">Exp</string>
 </resources>
