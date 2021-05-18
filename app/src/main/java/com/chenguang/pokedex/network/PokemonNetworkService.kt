@@ -19,8 +19,8 @@ interface PokemonNetworkService {
         @Query("offset") offset: Int = 0
     ): Response<PokemonListResponse>
 
-    @GET("pokemon/{name}")
-    suspend fun fetchPokemonDataByName(
-        @Path("name") name: String
+    @GET("pokemon/{id}")
+    suspend fun fetchPokemonDataById(
+        @Path("id") id: String
     ): Response<PokemonResponse>
 }

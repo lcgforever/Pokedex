@@ -16,7 +16,7 @@ class DefaultPokemonNetworkClient @Inject constructor(
         return pokemonNetworkService.fetchPokemonList(offset = offset)
     }
 
-    override suspend fun fetchPokemonDataByName(name: String): Response<PokemonResponse> {
-        return pokemonNetworkService.fetchPokemonDataByName(name = name)
+    override suspend fun fetchPokemonDataById(id: String): Response<PokemonResponse> {
+        return pokemonNetworkService.fetchPokemonDataById(id = id)
     }
 }

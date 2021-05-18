@@ -22,13 +22,13 @@
             android:id="@+id/pokemonInfoItemImageView"
             android:layout_width="128dp"
             android:layout_height="128dp"
-            android:scaleType="center"
+            android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/pokemonInfoItemTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -14,14 +15,15 @@ import com.chenguang.pokedex.databinding.LayoutPokemonInfoItemBinding
 import com.chenguang.pokedex.model.PokemonInfo
 
 class PokemonInfoPagingDataAdapter(
-    context: Context
+    context: Context,
+    private val onItemClicked: (item: PokemonInfo, sharedView: View) -> Unit
 ) : PagingDataAdapter<PokemonInfo, PokemonInfoPagingDataAdapter.PokemonInfoViewHolder>(PokemonInfoDiffUtil()) {
 
     private val layoutInflater = LayoutInflater.from(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonInfoViewHolder {
         val view = layoutInflater.inflate(R.layout.layout_pokemon_info_item, parent, false)
-        return PokemonInfoViewHolder(view)
+        return PokemonInfoViewHolder(view, onItemClicked)
     }
 
     override fun onBindViewHolder(holder: PokemonInfoViewHolder, position: Int) {
@@ -33,19 +35,31 @@ class PokemonInfoPagingDataAdapter(
         holder.clear()
     }
 
-    class PokemonInfoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class PokemonInfoViewHolder(
+        view: View,
+        private val onItemClicked: (item: PokemonInfo, sharedView: View) -> Unit
+    ) : RecyclerView.ViewHolder(view) {
+
         private val binding = LayoutPokemonInfoItemBinding.bind(itemView)
 
         fun bind(item: PokemonInfo?) {
-            if (item == null) {
-                binding.pokemonInfoItemTextView.text = ""
-                binding.pokemonInfoItemImageView.setImageDrawable(null)
-            } else {
-                binding.pokemonInfoItemTextView.text = item.name
-                Glide.with(itemView)
-                    .load(item.getImageUrl())
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .into(binding.pokemonInfoItemImageView)
+            with(binding) {
+                if (item == null) {
+                    pokemonInfoItemTextView.text = ""
+                    pokemonInfoItemImageView.setImageDrawable(null)
+                    pokemonInfoItemCardView.setOnClickListener(null)
+                } else {
+                    pokemonInfoItemTextView.text = item.name
+                    Glide.with(itemView)
+                        .load(item.getImageUrl())
+                        .transition(DrawableTransitionOptions.withCrossFade())
+                        .dontTransform()
+                        .into(pokemonInfoItemImageView)
+                    ViewCompat.setTransitionName(pokemonInfoItemImageView, item.name)
+                    pokemonInfoItemCardView.setOnClickListener {
+                        onItemClicked(item, pokemonInfoItemImageView)
+                    }
+                }
             }
         }
 

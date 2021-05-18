@@ -11,5 +11,5 @@ interface PokemonNetworkClient {
 
     suspend fun fetchPokemonList(offset: Int = 0): Response<PokemonListResponse>
 
-    suspend fun fetchPokemonDataByName(name: String): Response<PokemonResponse>
+    suspend fun fetchPokemonDataById(id: String): Response<PokemonResponse>
 }
