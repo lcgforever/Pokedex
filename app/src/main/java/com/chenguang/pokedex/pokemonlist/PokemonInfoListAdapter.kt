@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.chenguang.pokedex.R
 import com.chenguang.pokedex.databinding.LayoutPokemonInfoItemBinding
-import com.chenguang.pokedex.model.PokemonInfo
+import com.chenguang.pokedex.db.model.PokemonInfo
 
 class PokemonInfoListAdapter(
     context: Context
@@ -43,7 +43,7 @@ class PokemonInfoListAdapter(
 
     class PokemonInfoDiffUtil : DiffUtil.ItemCallback<PokemonInfo>() {
         override fun areItemsTheSame(oldItem: PokemonInfo, newItem: PokemonInfo): Boolean {
-            return oldItem.id == newItem.id
+            return oldItem.pokemonId == newItem.pokemonId
         }
 
         override fun areContentsTheSame(oldItem: PokemonInfo, newItem: PokemonInfo): Boolean {

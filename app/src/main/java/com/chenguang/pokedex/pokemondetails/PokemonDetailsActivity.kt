@@ -3,6 +3,7 @@ package com.chenguang.pokedex.pokemondetails
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -60,7 +61,10 @@ class PokemonDetailsActivity : AppCompatActivity() {
                     pokemonId = pokemonId,
                     onStart = {},
                     onCompletion = {},
-                    onError = {}
+                    onError = {
+                        val message = getString(R.string.pokemon_data_fetch_failed_text, it.localizedMessage)
+                        Toast.makeText(this@PokemonDetailsActivity, message, Toast.LENGTH_LONG).show()
+                    }
                 ).collectLatest { pokemonDetails ->
                     pokemonDetailsActivityCardHeightTextValue.text =
                         getString(R.string.pokemon_height_format, pokemonDetails.height)

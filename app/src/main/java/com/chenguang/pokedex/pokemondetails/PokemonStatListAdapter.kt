@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.chenguang.pokedex.R
 import com.chenguang.pokedex.databinding.LayoutPokemonStatItemBinding
-import com.chenguang.pokedex.model.PokemonStat
+import com.chenguang.pokedex.db.model.PokemonStat
 
 class PokemonStatListAdapter(
     context: Context
@@ -50,7 +50,7 @@ class PokemonStatListAdapter(
 
     class PokemonStatDiffUtil : DiffUtil.ItemCallback<PokemonStat>() {
         override fun areItemsTheSame(oldItem: PokemonStat, newItem: PokemonStat): Boolean {
-            return oldItem.id == newItem.id
+            return oldItem.statId == newItem.statId
         }
 
         override fun areContentsTheSame(oldItem: PokemonStat, newItem: PokemonStat): Boolean {
