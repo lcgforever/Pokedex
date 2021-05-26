@@ -3,7 +3,7 @@ package com.chenguang.pokedex.repository
 import android.net.Uri
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.chenguang.pokedex.model.PokemonInfo
+import com.chenguang.pokedex.db.model.PokemonInfo
 import com.chenguang.pokedex.network.PokemonNetworkClient
 import com.chenguang.pokedex.network.model.toPokemonInfo
 import timber.log.Timber

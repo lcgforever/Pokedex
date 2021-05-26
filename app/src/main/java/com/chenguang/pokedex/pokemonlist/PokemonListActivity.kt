@@ -13,7 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chenguang.pokedex.databinding.ActivityPokemonListBinding
-import com.chenguang.pokedex.model.PokemonInfo
+import com.chenguang.pokedex.db.model.PokemonInfo
 import com.chenguang.pokedex.pokemondetails.PokemonDetailsActivity
 import com.chenguang.pokedex.util.Constants
 import dagger.hilt.android.AndroidEntryPoint
@@ -88,7 +88,7 @@ class PokemonListActivity : AppCompatActivity() {
 
     private fun onPokemonItemClicked(pokemonInfo: PokemonInfo, sharedView: View) {
         val intent = Intent(this, PokemonDetailsActivity::class.java).apply {
-            putExtra(Constants.INTENT_EXTRA_KEY_POKEMON_ID, pokemonInfo.id)
+            putExtra(Constants.INTENT_EXTRA_KEY_POKEMON_ID, pokemonInfo.pokemonId)
             putExtra(Constants.INTENT_EXTRA_KEY_POKEMON_NAME, pokemonInfo.name)
             putExtra(Constants.INTENT_EXTRA_KEY_POKEMON_IMAGE, pokemonInfo.getImageUrl())
         }
