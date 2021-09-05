@@ -42,6 +42,8 @@ class PokemonListActivity : AppCompatActivity() {
     private fun setupViews() {
         val activity = this
         with(binding) {
+            setSupportActionBar(pokemonListActivityToolbar)
+
             pokemonListActivitySwipeRefreshLayout.setOnRefreshListener {
                 pagingAdapter.refresh()
             }

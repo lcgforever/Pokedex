@@ -52,6 +52,7 @@ class PokemonDetailsActivity : AppCompatActivity() {
             pokemonDetailsActivityCardTopTextView.text = formattedId
             pokemonDetailsActivityCardBottomTextView.text = formattedId
             pokemonDetailsActivityCardNameTextView.text = pokemonName
+            pokemonDetailsActivityToolbar.title = pokemonName
             Glide.with(pokemonDetailsActivityToolbar)
                 .load(pokemonImage)
                 .into(pokemonDetailsActivityCardCenterImageView)
